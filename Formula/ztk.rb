@@ -5,10 +5,10 @@ class Ztk < Formula
   sha256 "2d42c4ca868be389442397b3bc7edc84d71c0c0a7b3188d50185a7daeb8ed813"
   license "MIT"
 
-  depends_on "zig" => :build
+  depends_on "zig@0.15" => :build
 
   def install
-    system "zig", "build", "-Doptimize=ReleaseSmall",
+    system Formula["zig@0.15"].opt_bin/"zig", "build", "-Doptimize=ReleaseSmall",
            "--prefix", prefix,
            "-Dcpu=baseline"
     # zig build installs to prefix/bin/ztk
